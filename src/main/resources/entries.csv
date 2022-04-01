@@ -1,0 +1,13 @@
+input, expected
+"([{{[(())]}}])", true
+"()", true
+"[]", true
+"{}", true
+"{{[]()}}}}", false
+ "{[(])}", false
+"[](){}", false
+"", false
+"     ", false
+"{{[](]}}}}", false
+"aaaABBbbaa", false
+"11123245", false
