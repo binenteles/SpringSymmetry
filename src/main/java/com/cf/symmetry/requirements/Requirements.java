@@ -28,7 +28,7 @@ public class Requirements {
 
     }
 
-    public static boolean matchCharactersWithRequirementPair(char left, char right) {
+    public static boolean compareCharacters(char left, char right) {
         return Requirements.readRequirementPairs().stream()
                 .noneMatch(requirement -> requirement.compareChars(left, right));
     }

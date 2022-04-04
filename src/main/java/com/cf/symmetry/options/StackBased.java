@@ -21,7 +21,7 @@ public class StackBased extends Evaluator {
             if (isOpenBracket(current)) {
                 stack.push(current);
 
-            } else if (Requirements.matchCharactersWithRequirementPair(stack.pop(), current)) {
+            } else if (Requirements.compareCharacters(stack.pop(), current)) {
                 return false;
             }
 

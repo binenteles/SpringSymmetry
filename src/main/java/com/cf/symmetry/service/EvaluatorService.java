@@ -12,10 +12,10 @@ public class EvaluatorService {
 
     public boolean checkEntries(String str, String method){
         Type methodEvaluation = Type.valueOf(method);
-        boolean result = false;
+        boolean result;
 
         if(str.isEmpty()){
-            throw new IllegalArgumentException("Please provide a valid string. Method is optional; options are");
+            throw new IllegalArgumentException("Please provide a valid string. Method is optional; options are: FOR, WHILE, STACK, REGEX");
         } else if(method.isEmpty()){
             result = symmetryFactory.getEvaluator(Type.FOR).isSymmetric(str);
         } else {
@@ -29,4 +29,5 @@ public class EvaluatorService {
         }
         return result;
     }
+
 }

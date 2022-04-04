@@ -12,7 +12,7 @@ public abstract class Evaluator {
 
     public final boolean evaluate(String str) {
         return !isStringNullOrEmpty(str) && !isValidWithoutSpaces(str)
-                && isEven(str) && containsOnlyRequiredElements(str) && isSymmetric(str);
+                && isEven(str) && containsOnlyRequiredCharacters(str) && isSymmetric(str);
     }
 
     private boolean isStringNullOrEmpty(String str) {
@@ -27,7 +27,7 @@ public abstract class Evaluator {
         return str.length() % 2 == 0;
     }
 
-    private boolean containsOnlyRequiredElements(String str) {
+    private boolean containsOnlyRequiredCharacters(String str) {
         Set<Character> set = new HashSet<>();
         Requirements.readRequirementPairs().forEach(req -> {
             set.add(req.getLeftChar());

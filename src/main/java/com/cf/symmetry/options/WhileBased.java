@@ -11,11 +11,11 @@ public class WhileBased extends Evaluator {
         int j = arr.length - 1;
 
         while (i < j) {
-            char start = arr[i];
-            char end = arr[j];
+            char left = arr[i];
+            char right = arr[j];
             i++;
             j--;
-            if (Requirements.matchCharactersWithRequirementPair(start, end)) {
+            if (Requirements.compareCharacters(left, right)) {
                 return false;
             }
 
