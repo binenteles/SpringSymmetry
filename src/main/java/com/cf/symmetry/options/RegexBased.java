@@ -13,7 +13,7 @@ public class RegexBased extends Evaluator {
         if (str.length() == 2) {
             return matcher.matches();
         }
-        return matcher.matches() && evaluate(str.substring(1, str.length() - 1));
+        return matcher.matches() && checkConditions(str.substring(1, str.length() - 1));
     }
 
 }

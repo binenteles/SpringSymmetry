@@ -60,5 +60,4 @@ public class StackBased extends Evaluator {
     }
 
 
-
 }

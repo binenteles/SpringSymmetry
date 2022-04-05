@@ -10,17 +10,17 @@ import java.util.Set;
 public abstract class Evaluator {
     public abstract boolean isSymmetric(String str);
 
-    public final boolean evaluate(String str) {
-        return !isStringNullOrEmpty(str) && !isValidWithoutSpaces(str)
+    public final boolean checkConditions(String str) {
+        return stringIsNotNullOrEmpty(str) && isValidAfterSpacesRemoval(str)
                 && isEven(str) && containsOnlyRequiredCharacters(str) && isSymmetric(str);
     }
 
-    private boolean isStringNullOrEmpty(String str) {
-        return Objects.isNull(str) || str.isEmpty();
+    private boolean stringIsNotNullOrEmpty(String str) {
+        return !(Objects.isNull(str) || str.isEmpty());
     }
 
-    private boolean isValidWithoutSpaces(String str) {
-        return str.trim().length() < 2;
+    private boolean isValidAfterSpacesRemoval(String str) {
+        return !(str.trim().length() < 2);
     }
 
     private boolean isEven(String str) {
