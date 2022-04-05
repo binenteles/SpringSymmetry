@@ -1,8 +1,8 @@
 package com.cf.symmetry.options;
 
 import com.cf.symmetry.Evaluator;
-import com.cf.symmetry.requirements.Requirement;
-import com.cf.symmetry.requirements.Requirements;
+import com.cf.symmetry.service.requirements.Requirement;
+import com.cf.symmetry.service.requirements.Requirements;
 
 
 import java.util.Stack;

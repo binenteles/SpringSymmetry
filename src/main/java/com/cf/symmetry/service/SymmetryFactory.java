@@ -1,5 +1,7 @@
-package com.cf.symmetry;
+package com.cf.symmetry.service;
 
+import com.cf.symmetry.Evaluator;
+import com.cf.symmetry.Type;
 import com.cf.symmetry.options.ForBased;
 import com.cf.symmetry.options.RegexBased;
 import com.cf.symmetry.options.StackBased;

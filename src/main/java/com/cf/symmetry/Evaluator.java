@@ -1,6 +1,6 @@
 package com.cf.symmetry;
 
-import com.cf.symmetry.requirements.Requirements;
+import com.cf.symmetry.service.requirements.Requirements;
 
 import java.util.HashSet;
 import java.util.Objects;

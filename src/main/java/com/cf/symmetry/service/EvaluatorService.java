@@ -1,6 +1,5 @@
 package com.cf.symmetry.service;
 
-import com.cf.symmetry.SymmetryFactory;
 import com.cf.symmetry.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

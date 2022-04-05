@@ -1,4 +1,4 @@
-package com.cf.symmetry.requirements;
+package com.cf.symmetry.service.requirements;
 
 import org.springframework.stereotype.Service;
 
