@@ -8,12 +8,22 @@ import java.util.regex.Pattern;
 public class RegexBased extends Evaluator {
     @Override
     public boolean isSymmetric(String str) {
-        Pattern pattern = Pattern.compile("(^\\(.*?\\)$)|(^\\[.*?]$)|(^\\{.*?}$)");
-        Matcher matcher = pattern.matcher(str);
-        if (str.length() == 2) {
-            return matcher.matches();
+        if (isInvalid(str)) {
+            return false;
         }
-        return matcher.matches() && evaluate(str.substring(1, str.length() - 1));
+
+        if (str.length() == 2) {
+            return regexMatches(str);
+        }
+
+        String remainedString = str.substring(1, str.length() - 1);
+        return regexMatches(str) && isSymmetric(remainedString);
     }
 
+    private boolean regexMatches(String str) {
+        Pattern pattern = Pattern.compile("(^\\(.*?\\)$)|(^\\[.*?]$)|(^\\{.*?}$)");
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
+    }
 }
+

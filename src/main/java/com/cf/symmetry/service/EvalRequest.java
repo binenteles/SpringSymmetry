@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
-public class Entries {
+public class EvalRequest {
     private String str;
     private String method = "FOR";
 }
