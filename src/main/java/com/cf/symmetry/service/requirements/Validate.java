@@ -12,15 +12,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class Requirements {
+public class Validate {
 
-    public static List<Requirement<Character>> readRequirementPairs() {
-
+    public static List<Pair<Character>> getPairs() {
 
         try {
             Path filePath = Paths.get(ClassLoader.getSystemResource("rules.txt").toURI());
             return Files.readAllLines(filePath).stream()
-                    .map(line -> new Requirement<>(line.charAt(0), line.charAt(1))).collect(Collectors.toList());
+                    .map(line -> new Pair<>(line.charAt(0), line.charAt(1))).collect(Collectors.toList());
 
         } catch (NullPointerException | IOException | URISyntaxException e) {
             throw new ReadRequirementException("The file could not be opened!", e);
@@ -29,8 +28,14 @@ public class Requirements {
     }
 
     public static boolean compareCharacters(char left, char right) {
-        return Requirements.readRequirementPairs().stream()
-                .noneMatch(requirement -> requirement.compareChars(left, right));
+        return Validate.getPairs().stream()
+                .noneMatch(requirement -> requirement.checkPair(left, right));
+    }
+
+    public static boolean recognizeChar(char c){
+        return Validate.getPairs()
+                .stream().anyMatch(pair -> pair.getLeftChar() == c || pair.getRightChar() == c);
+
     }
 
 

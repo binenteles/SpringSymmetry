@@ -1,18 +1,21 @@
 package com.cf.symmetry.options;
 
 import com.cf.symmetry.Evaluator;
-import com.cf.symmetry.service.requirements.Requirement;
-import com.cf.symmetry.service.requirements.Requirements;
+import com.cf.symmetry.service.requirements.Pair;
+import com.cf.symmetry.service.requirements.Validate;
 
 
 import java.util.Stack;
 
 public class StackBased extends Evaluator {
+
     @Override
     public boolean isSymmetric(String str) {
-        Stack<Character> stack = new Stack<>();
 
-        if (hasOpenBracketsInTheRightSide(str) || hasClosedBracketsInTheLeftSide(str)) {
+        Stack<Character> stack = new Stack<>();
+        boolean unexpectedChars = hasOpenBracketsInTheRightSide(str) || hasClosedBracketsInTheLeftSide(str);
+
+        if (isInvalid(str) || unexpectedChars) {
             return false;
         }
 
@@ -21,16 +24,19 @@ public class StackBased extends Evaluator {
             if (isOpenBracket(current)) {
                 stack.push(current);
 
-            } else if (Requirements.compareCharacters(stack.pop(), current)) {
-                return false;
+            } else {
+                Character firstStackChar = stack.pop();
+                boolean stackNotMatchWithCurrentChar = Validate.compareCharacters(firstStackChar, current);
+                if (stackNotMatchWithCurrentChar) {
+                    return false;
+                }
             }
-
         }
         return true;
 
     }
 
-    private boolean hasOpenBracketsInTheRightSide(String str) {
+    public boolean hasOpenBracketsInTheRightSide(String str) {
         for (int i = str.length() / 2; i < str.length(); i++) {
             char current = str.charAt(i);
             if (isOpenBracket(current)) {
@@ -40,7 +46,7 @@ public class StackBased extends Evaluator {
         return false;
     }
 
-    private boolean hasClosedBracketsInTheLeftSide(String str) {
+    public boolean hasClosedBracketsInTheLeftSide(String str) {
         for (int i = 0; i < str.length() / 2; i++) {
             char current = str.charAt(i);
             if (isClosedBracket(current)) {
@@ -50,15 +56,12 @@ public class StackBased extends Evaluator {
         return false;
     }
 
-    private boolean isOpenBracket(char input) {
-        return Requirements.readRequirementPairs().stream().map(Requirement::getLeftChar).toList().contains(input);
+    public boolean isOpenBracket(char input) {
+        return Validate.getPairs().stream().map(Pair::getLeftChar).toList().contains(input);
     }
 
 
-    private boolean isClosedBracket(char input) {
-        return Requirements.readRequirementPairs().stream().map(Requirement::getRightChar).toList().contains(input);
+    public boolean isClosedBracket(char input) {
+        return Validate.getPairs().stream().map(Pair::getRightChar).toList().contains(input);
     }
-
-
-
 }

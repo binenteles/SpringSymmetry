@@ -1,11 +1,15 @@
 package com.cf.symmetry.options;
 
 import com.cf.symmetry.Evaluator;
-import com.cf.symmetry.service.requirements.Requirements;
+import com.cf.symmetry.service.requirements.Validate;
 
 public class WhileBased extends Evaluator {
     @Override
     public boolean isSymmetric(String str) {
+        if (isInvalid(str)) {
+            return false;
+        }
+
         char[] arr = str.toCharArray();
         int i = 0;
         int j = arr.length - 1;
@@ -15,7 +19,8 @@ public class WhileBased extends Evaluator {
             char right = arr[j];
             i++;
             j--;
-            if (Requirements.compareCharacters(left, right)) {
+            boolean charsNotMatch = Validate.compareCharacters(left, right);
+            if (charsNotMatch) {
                 return false;
             }
 

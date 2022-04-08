@@ -5,6 +5,4 @@ public enum Type {
     WHILE,
     STACK,
     REGEX
-
-
 }
