@@ -1,22 +1,30 @@
 package com.cf.symmetry.service.evaluation;
 
-import com.cf.symmetry.entity.EvalRequest;
-import com.cf.symmetry.dto.EvalRequestDto;
-import com.cf.symmetry.mapper.EvalRequestMapper;
 import com.cf.symmetry.EvalResponse;
+import com.cf.symmetry.dto.EvalRequestDto;
+import com.cf.symmetry.entity.EvalRequest;
+import com.cf.symmetry.mapper.EvalRequestMapper;
+import com.cf.symmetry.validator.EvalRequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class EvaluatorService {
-    @Autowired
-    private SymmetryFactory symmetryFactory;
+
+
+    private final SymmetryFactory symmetryFactory;
+
+    private final EvalRequestMapper evalRequestMapper;
 
     @Autowired
-    private EvalRequestMapper evalRequestMapper;
+    public EvaluatorService(SymmetryFactory symmetryFactory, EvalRequestMapper evalRequestMapper) {
+        this.symmetryFactory = symmetryFactory;
+        this.evalRequestMapper = evalRequestMapper;
+    }
 
-    public EvalResponse checkStrSymmetry(EvalRequestDto evalRequestDto) {
-        EvalRequest evalRequest = evalRequestMapper.mapToEntity(evalRequestDto);
+    public EvalResponse provideResponse(EvalRequestDto evalRequestDto) {
+        EvalRequest evalRequest = evalRequestMapper.map(evalRequestDto);
         boolean symmetric = symmetryFactory.getEvaluator(evalRequest.getMethod()).isSymmetric(evalRequest.getStr());
 
         if(symmetric){

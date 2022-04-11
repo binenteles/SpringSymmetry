@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EvalRequestMapper {
-    public EvalRequest mapToEntity(EvalRequestDto evalRequestDto) {
+
+
+    public EvalRequest map(EvalRequestDto evalRequestDto) {
         EvalRequest evalRequest = new EvalRequest();
-        if (evalRequestDto.getStr().isEmpty()){
+        if (evalRequestDto.getStr() == null ||evalRequestDto.getStr().isEmpty()) {
             throw new ApiRequestException("Please provide a valid string. Method is optional; options are: FOR, WHILE, STACK, REGEX");
         }
         evalRequest.setStr(evalRequestDto.getStr());
@@ -18,7 +20,7 @@ public class EvalRequestMapper {
         try {
             if (evalRequestDto.getMethod() == null) {
                 evalRequest.setMethod(MethodEvaluation.FOR);
-            }else {
+            } else {
                 evalRequest.setMethod(MethodEvaluation.valueOf(evalRequestDto.getMethod()));
             }
         } catch (IllegalArgumentException e) {

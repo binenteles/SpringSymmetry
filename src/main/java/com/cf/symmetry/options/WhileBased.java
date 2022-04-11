@@ -1,6 +1,6 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Validate;
+import com.cf.symmetry.service.requirements.Reference;
 
 public class WhileBased extends Evaluator {
     @Override
@@ -18,7 +18,7 @@ public class WhileBased extends Evaluator {
             char right = arr[j];
             i++;
             j--;
-            boolean charsNotMatch = Validate.compareCharacters(left, right);
+            boolean charsNotMatch = Reference.compareCharacters(left, right);
             if (charsNotMatch) {
                 return false;
             }

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EvalRequest {
+
     private String str;
     private MethodEvaluation method;
 }

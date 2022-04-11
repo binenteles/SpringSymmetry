@@ -1,9 +1,10 @@
-package com.cf.symmetry;
+package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Validate;
+import com.cf.symmetry.service.requirements.Reference;
 
 
 public abstract class Evaluator {
+
     public abstract boolean isSymmetric(String str);
 
     public final boolean isInvalid(String str) {
@@ -19,7 +20,7 @@ public abstract class Evaluator {
     }
 
     private boolean hasOtherCharacters(String str) {
-        return str.codePoints().mapToObj(i -> (char) i).noneMatch(Validate::recognizeChar);
+        return str.codePoints().mapToObj(i -> (char) i).noneMatch(Reference::recognizeChar);
     }
 
 }

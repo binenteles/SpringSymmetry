@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class Validate {
+public class Reference {
+
 
     public static List<Pair<Character>> getPairs() {
 
@@ -28,12 +29,12 @@ public class Validate {
     }
 
     public static boolean compareCharacters(char left, char right) {
-        return Validate.getPairs().stream()
+        return getPairs().stream()
                 .noneMatch(requirement -> requirement.checkPair(left, right));
     }
 
-    public static boolean recognizeChar(char c){
-        return Validate.getPairs()
+    public static   boolean recognizeChar(char c){
+        return getPairs()
                 .stream().anyMatch(pair -> pair.getLeftChar() == c || pair.getRightChar() == c);
 
     }
