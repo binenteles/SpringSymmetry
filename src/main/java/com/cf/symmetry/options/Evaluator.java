@@ -1,4 +1,4 @@
-package com.cf.symmetry;
+package com.cf.symmetry.options;
 
 import com.cf.symmetry.service.requirements.Validate;
 
