@@ -1,6 +1,5 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.Evaluator;
 import com.cf.symmetry.service.requirements.Validate;
 
 

@@ -1,13 +1,13 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.Evaluator;
 import com.cf.symmetry.service.requirements.Pair;
 import com.cf.symmetry.service.requirements.Validate;
 
-
 import java.util.Stack;
 
+
 public class StackBased extends Evaluator {
+
 
     @Override
     public boolean isSymmetric(String str) {
@@ -36,7 +36,7 @@ public class StackBased extends Evaluator {
 
     }
 
-    public boolean hasOpenBracketsInTheRightSide(String str) {
+    private boolean hasOpenBracketsInTheRightSide(String str) {
         for (int i = str.length() / 2; i < str.length(); i++) {
             char current = str.charAt(i);
             if (isOpenBracket(current)) {
@@ -46,7 +46,7 @@ public class StackBased extends Evaluator {
         return false;
     }
 
-    public boolean hasClosedBracketsInTheLeftSide(String str) {
+    private boolean hasClosedBracketsInTheLeftSide(String str) {
         for (int i = 0; i < str.length() / 2; i++) {
             char current = str.charAt(i);
             if (isClosedBracket(current)) {
@@ -56,12 +56,13 @@ public class StackBased extends Evaluator {
         return false;
     }
 
-    public boolean isOpenBracket(char input) {
+    private boolean isOpenBracket(char input) {
         return Validate.getPairs().stream().map(Pair::getLeftChar).toList().contains(input);
     }
 
-
-    public boolean isClosedBracket(char input) {
+    private boolean isClosedBracket(char input) {
         return Validate.getPairs().stream().map(Pair::getRightChar).toList().contains(input);
     }
+
+
 }

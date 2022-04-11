@@ -1,7 +1,5 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.Evaluator;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

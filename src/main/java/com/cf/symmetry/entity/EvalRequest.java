@@ -1,5 +1,6 @@
-package com.cf.symmetry.service;
+package com.cf.symmetry.entity;
 
+import com.cf.symmetry.MethodEvaluation;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,5 +8,5 @@ import lombok.Setter;
 @Setter
 public class EvalRequest {
     private String str;
-    private String method = "FOR";
+    private MethodEvaluation method;
 }

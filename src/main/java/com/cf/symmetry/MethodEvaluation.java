@@ -1,6 +1,6 @@
 package com.cf.symmetry;
 
-public enum Type {
+public enum MethodEvaluation {
     FOR,
     WHILE,
     STACK,

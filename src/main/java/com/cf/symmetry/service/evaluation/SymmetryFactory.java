@@ -1,7 +1,7 @@
-package com.cf.symmetry.service;
+package com.cf.symmetry.service.evaluation;
 
-import com.cf.symmetry.Evaluator;
-import com.cf.symmetry.Type;
+import com.cf.symmetry.options.Evaluator;
+import com.cf.symmetry.MethodEvaluation;
 import com.cf.symmetry.options.ForBased;
 import com.cf.symmetry.options.RegexBased;
 import com.cf.symmetry.options.StackBased;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public final class SymmetryFactory {
-    public Evaluator getEvaluator(Type symmetricEvaluatorType) {
+    public Evaluator getEvaluator(MethodEvaluation symmetricEvaluatorType) {
         return switch (symmetricEvaluatorType) {
             case FOR -> new ForBased();
             case WHILE -> new WhileBased();
