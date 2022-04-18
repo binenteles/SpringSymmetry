@@ -1,4 +1,4 @@
-package com.cf.symmetry;
+package com.cf.symmetry.service.evaluation;
 
 import lombok.Getter;
 import lombok.Setter;

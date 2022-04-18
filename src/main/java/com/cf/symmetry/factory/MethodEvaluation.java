@@ -1,4 +1,4 @@
-package com.cf.symmetry;
+package com.cf.symmetry.factory;
 
 public enum MethodEvaluation {
     FOR("METHOD_FOR"),
@@ -8,11 +8,9 @@ public enum MethodEvaluation {
 
     private final String method;
 
-
     MethodEvaluation(String method) {
         this.method = method;
     }
-
 
     public String getMethod(){
         return method;
