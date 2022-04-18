@@ -2,7 +2,6 @@ package com.cf.symmetry.controller;
 
 import com.cf.symmetry.EvalResponse;
 import com.cf.symmetry.dto.EvalRequestDto;
-import com.cf.symmetry.exceptions.ApiRequestException;
 import com.cf.symmetry.service.evaluation.EvaluatorService;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

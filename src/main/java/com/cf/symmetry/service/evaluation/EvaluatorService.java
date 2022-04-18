@@ -17,13 +17,17 @@ public class EvaluatorService {
 
     private final EvalRequestMapper evalRequestMapper;
 
+    private final EvalRequestValidator evalRequestValidator;
+
     @Autowired
-    public EvaluatorService(SymmetryFactory symmetryFactory, EvalRequestMapper evalRequestMapper) {
+    public EvaluatorService(SymmetryFactory symmetryFactory, EvalRequestMapper evalRequestMapper, EvalRequestValidator evalRequestValidator) {
         this.symmetryFactory = symmetryFactory;
         this.evalRequestMapper = evalRequestMapper;
+        this.evalRequestValidator = evalRequestValidator;
     }
 
     public EvalResponse provideResponse(EvalRequestDto evalRequestDto) {
+        evalRequestValidator.validate(evalRequestDto);
         EvalRequest evalRequest = evalRequestMapper.map(evalRequestDto);
         boolean symmetric = symmetryFactory.getEvaluator(evalRequest.getMethod()).isSymmetric(evalRequest.getStr());
 

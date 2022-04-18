@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(SymmetryController.class)
-@Import({EvaluatorService.class, SymmetryFactory.class, EvalRequestMapper.class})
+@Import({EvaluatorService.class, SymmetryFactory.class, EvalRequestMapper.class, EvalRequestValidator.class})
 class SymmetryApplicationTests {
 
     @Autowired

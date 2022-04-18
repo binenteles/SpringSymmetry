@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 @Service
 public final class SymmetryFactory {
 
-    public Evaluator getEvaluator(MethodEvaluation symmetricEvaluatorType) {
-        return switch (symmetricEvaluatorType) {
+    public Evaluator getEvaluator(MethodEvaluation methodEvaluation) {
+        return switch (methodEvaluation) {
             case FOR -> new ForBased();
-            case WHILE -> new WhileBased();
             case STACK -> new StackBased();
             case REGEX -> new RegexBased();
+            case WHILE -> new WhileBased();
         };
 
     }

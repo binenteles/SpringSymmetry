@@ -14,7 +14,7 @@
 	<name>symmetry</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -48,38 +48,10 @@
 			<version>4.4.0</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.github.mvp4g</groupId>
-			<artifactId>sema4g-requestbuilder</artifactId>
-			<version>1.6.2</version>
-			<scope>compile</scope>
-		</dependency>
+
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>16</source>
-					<target>16</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+
 
 </project>
