@@ -3,9 +3,9 @@ package com.cf.symmetry;
 import com.cf.symmetry.controller.SymmetryController;
 import com.cf.symmetry.entity.EvalRequest;
 import com.cf.symmetry.factory.MethodEvaluation;
+import com.cf.symmetry.service.evaluation.SymmetryFactory;
 import com.cf.symmetry.service.evaluation.EvalResponse;
 import com.cf.symmetry.service.evaluation.EvaluatorService;
-import com.cf.symmetry.factory.SymmetryFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +14,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;

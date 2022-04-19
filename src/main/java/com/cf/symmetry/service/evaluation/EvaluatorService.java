@@ -1,7 +1,6 @@
 package com.cf.symmetry.service.evaluation;
 
 import com.cf.symmetry.entity.EvalRequest;
-import com.cf.symmetry.factory.SymmetryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

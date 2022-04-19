@@ -1,5 +1,6 @@
-package com.cf.symmetry.factory;
+package com.cf.symmetry.service.evaluation;
 
+import com.cf.symmetry.factory.MethodEvaluation;
 import com.cf.symmetry.options.*;
 import org.springframework.stereotype.Service;
 
