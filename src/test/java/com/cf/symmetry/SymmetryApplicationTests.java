@@ -1,7 +1,7 @@
 package com.cf.symmetry;
 
 import com.cf.symmetry.controller.SymmetryController;
-import com.cf.symmetry.entity.EvalRequest;
+import com.cf.symmetry.entity.Request;
 import com.cf.symmetry.factory.MethodEvaluation;
 import com.cf.symmetry.service.evaluation.SymmetryFactory;
 import com.cf.symmetry.service.evaluation.EvalResponse;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(SymmetryController.class)
-@Import({EvaluatorService.class, SymmetryFactory.class, EvalRequest.class})
+@Import({EvaluatorService.class, SymmetryFactory.class, Request.class})
 class SymmetryApplicationTests {
 
     @Autowired
@@ -36,7 +36,7 @@ class SymmetryApplicationTests {
     void shouldAcceptCorrectEvaluation_WhenProvideAValidStringAndMethod() throws Exception {
 
         mockMvc.perform(post("/api/symmetry-status").contentType(APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(new EvalRequest("([{}])", MethodEvaluation.WHILE)))).andExpect(status().isOk())
+                        .content(objectMapper.writeValueAsString(new Request("([{}])", MethodEvaluation.WHILE)))).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("{\"message\":\"String ([{}]) is symmetric. Method used: WHILE\"}"));
     }
 
@@ -48,7 +48,7 @@ class SymmetryApplicationTests {
         String response = objectMapper.writeValueAsString(evalResponse);
 
         mockMvc.perform(post("/api/symmetry-status").contentType(APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(new EvalRequest("([{}])", null)))).andExpect(status().isOk())
+                        .content(objectMapper.writeValueAsString(new Request("([{}])",null)))).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(response));
     }
 
@@ -56,7 +56,7 @@ class SymmetryApplicationTests {
     void shouldAcceptBadRequest_WhenStringIsNull() throws Exception {
 
         mockMvc.perform(post("/api/symmetry-status").contentType(APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(new EvalRequest(null, MethodEvaluation.REGEX)))).andExpect(status().isBadRequest())
+                        .content(objectMapper.writeValueAsString(new Request(null, MethodEvaluation.REGEX)))).andExpect(status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.content().string("{\"status\":400,\"errors\":[\"Please provide a valid string. Method is optional; options are: FOR, WHILE, STACK, REGEX\"]}"));
     }
 

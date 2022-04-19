@@ -1,31 +1,33 @@
 package com.cf.symmetry.service.evaluation;
 
-import com.cf.symmetry.entity.EvalRequest;
+import com.cf.symmetry.entity.Request;
+import com.cf.symmetry.factory.MethodEvaluation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class EvaluatorService {
 
     private final SymmetryFactory symmetryFactory;
-    private final EvalRequest evalRequest;
+    private final Request requestService;
 
     @Autowired
-    public EvaluatorService(SymmetryFactory symmetryFactory, EvalRequest evalRequest) {
+    public EvaluatorService(SymmetryFactory symmetryFactory, Request request) {
         this.symmetryFactory = symmetryFactory;
-        this.evalRequest = evalRequest;
+        this.requestService = request;
     }
 
-    public EvalResponse provideResponse(EvalRequest evalRequest) {
-        EvalRequest request = evalRequest.setDefaultMethod(evalRequest);
-        boolean symmetric = symmetryFactory.getEvaluator(request.getMethod()).isSymmetric(request.getStr());
+    public EvalResponse evaluate(Request request) {
+        Request checkedRequest = requestService.setDefaultMethod(request);
+        MethodEvaluation method = checkedRequest.getMethod();
+        String string = checkedRequest.getStr();
+        boolean symmetric = symmetryFactory.getEvaluator(method).isSymmetric(string);
 
         if (symmetric) {
-            return new EvalResponse(String.format("String %s is symmetric. Method used: %s", request.getStr(), request.getMethod()));
+            return new EvalResponse(String.format("String %s is symmetric. Method used: %s", string, method));
         }
 
-        return new EvalResponse(String.format("String %s is not symmetric. Method used: %s", request.getStr(), request.getMethod()));
+        return new EvalResponse(String.format("String %s is not symmetric. Method used: %s", string, method));
     }
 
 }

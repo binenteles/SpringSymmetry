@@ -1,6 +1,6 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Reference;
+import com.cf.symmetry.service.requirements.Rule;
 
 
 public class ForBased extends Evaluator {
@@ -14,7 +14,7 @@ public class ForBased extends Evaluator {
         for (int i = 0; i < str.length() / 2; i++) {
             char start = str.charAt(i);
             char end = str.charAt(str.length() - 1 - i);
-            boolean charsNotMatch = Reference.compareCharacters(start, end);
+            boolean charsNotMatch = Rule.compareCharacters(start, end);
 
             if (charsNotMatch) {
                 return false;

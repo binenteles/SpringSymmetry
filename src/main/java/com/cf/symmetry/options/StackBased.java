@@ -1,7 +1,7 @@
 package com.cf.symmetry.options;
 
 import com.cf.symmetry.service.requirements.Pair;
-import com.cf.symmetry.service.requirements.Reference;
+import com.cf.symmetry.service.requirements.Rule;
 
 import java.util.Stack;
 
@@ -26,7 +26,7 @@ public class StackBased extends Evaluator {
 
             } else {
                 Character firstStackChar = stack.pop();
-                boolean stackNotMatchWithCurrentChar = Reference.compareCharacters(firstStackChar, current);
+                boolean stackNotMatchWithCurrentChar = Rule.compareCharacters(firstStackChar, current);
                 if (stackNotMatchWithCurrentChar) {
                     return false;
                 }
@@ -57,11 +57,11 @@ public class StackBased extends Evaluator {
     }
 
     private boolean isOpenBracket(char input) {
-        return Reference.getPairs().stream().map(Pair::getLeftChar).toList().contains(input);
+        return Rule.getRulePair().stream().map(Pair::getLeftChar).toList().contains(input);
     }
 
     private boolean isClosedBracket(char input) {
-        return Reference.getPairs().stream().map(Pair::getRightChar).toList().contains(input);
+        return Rule.getRulePair().stream().map(Pair::getRightChar).toList().contains(input);
     }
 
 

@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class Reference {
+public class Rule {
 
 
-    public static List<Pair<Character>> getPairs() {
+    public static List<Pair<Character>> getRulePair() {
 
         try {
             Path filePath = Paths.get(ClassLoader.getSystemResource("rules.txt").toURI());
@@ -29,12 +29,12 @@ public class Reference {
     }
 
     public static boolean compareCharacters(char left, char right) {
-        return getPairs().stream()
+        return getRulePair().stream()
                 .noneMatch(requirement -> requirement.checkPair(left, right));
     }
 
     public static   boolean recognizeChar(char c){
-        return getPairs()
+        return getRulePair()
                 .stream().anyMatch(pair -> pair.getLeftChar() == c || pair.getRightChar() == c);
 
     }

@@ -1,6 +1,6 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Reference;
+import com.cf.symmetry.service.requirements.Rule;
 
 
 public abstract class Evaluator {
@@ -20,7 +20,7 @@ public abstract class Evaluator {
     }
 
     private boolean hasOtherCharacters(String str) {
-        return str.codePoints().mapToObj(i -> (char) i).noneMatch(Reference::recognizeChar);
+        return str.codePoints().mapToObj(i -> (char) i).noneMatch(Rule::recognizeChar);
     }
 
 }
