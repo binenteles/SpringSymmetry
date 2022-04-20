@@ -16,16 +16,18 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class NullStringExceptionHandler extends ResponseEntityExceptionHandler {
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("status", status.value());
-        List<String> errors = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.toList());
-        body.put("errors", errors);
-        return new ResponseEntity<>(body, headers, status);
-    }
+
+  @Override
+  protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+      HttpHeaders headers, HttpStatus status, WebRequest request) {
+    Map<String, Object> body = new LinkedHashMap<>();
+    body.put("status", status.value());
+    List<String> errors = ex.getBindingResult()
+        .getFieldErrors()
+        .stream()
+        .map(DefaultMessageSourceResolvable::getDefaultMessage)
+        .collect(Collectors.toList());
+    body.put("errors", errors);
+    return new ResponseEntity<>(body, headers, status);
+  }
 }

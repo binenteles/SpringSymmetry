@@ -6,9 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EvalResponse {
-    private String message;
 
-    public EvalResponse(String message) {
-        this.message = message;
-    }
+  private String message;
+
+  public EvalResponse(String message) {
+    this.message = message;
+  }
 }

@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 @ToString
 @Data
 public class Pair<T> {
-    private  T leftChar;
-    private  T rightChar;
 
-    public boolean checkPair(char left, char right) {
-        return getLeftChar().equals(left) && getRightChar().equals(right);
-    }
+  private T leftChar;
+  private T rightChar;
+
+  public boolean checkPair(char left, char right) {
+    return getLeftChar().equals(left) && getRightChar().equals(right);
+  }
 }
 

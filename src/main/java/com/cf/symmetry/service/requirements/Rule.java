@@ -15,30 +15,29 @@ import java.util.stream.Collectors;
 public class Rule {
 
 
-    public static List<Pair<Character>> getRulePair() {
+  public static List<Pair<Character>> getRulePair() {
 
-        try {
-            Path filePath = Paths.get(ClassLoader.getSystemResource("rules.txt").toURI());
-            return Files.readAllLines(filePath).stream()
-                    .map(line -> new Pair<>(line.charAt(0), line.charAt(1))).collect(Collectors.toList());
+    try {
+      Path filePath = Paths.get(ClassLoader.getSystemResource("rules.txt").toURI());
+      return Files.readAllLines(filePath).stream()
+          .map(line -> new Pair<>(line.charAt(0), line.charAt(1))).collect(Collectors.toList());
 
-        } catch (NullPointerException | IOException | URISyntaxException e) {
-            throw new ReadRequirementException("The file could not be opened!", e);
-        }
-
+    } catch (NullPointerException | IOException | URISyntaxException e) {
+      throw new ReadRequirementException("The file could not be opened!", e);
     }
 
-    public static boolean compareCharacters(char left, char right) {
-        return getRulePair().stream()
-                .noneMatch(requirement -> requirement.checkPair(left, right));
-    }
+  }
 
-    public static   boolean recognizeChar(char c){
-        return getRulePair()
-                .stream().anyMatch(pair -> pair.getLeftChar() == c || pair.getRightChar() == c);
+  public static boolean compareCharacters(char left, char right) {
+    return getRulePair().stream()
+        .noneMatch(requirement -> requirement.checkPair(left, right));
+  }
 
-    }
+  public static boolean recognizeChar(char c) {
+    return getRulePair()
+        .stream().anyMatch(pair -> pair.getLeftChar() == c || pair.getRightChar() == c);
 
+  }
 
 
 }

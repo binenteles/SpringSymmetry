@@ -15,17 +15,17 @@ import javax.validation.Valid;
 @RequestMapping("/api")
 public class SymmetryController {
 
-    private EvaluatorService evaluatorService;
+  private EvaluatorService evaluatorService;
 
-    @Autowired
-    public SymmetryController(EvaluatorService evaluatorService) {
-        this.evaluatorService = evaluatorService;
-    }
+  @Autowired
+  public SymmetryController(EvaluatorService evaluatorService) {
+    this.evaluatorService = evaluatorService;
+  }
 
-    @PostMapping("/symmetry-status")
-    public EvalResponse status(@Valid @RequestBody RequestService request) {
-        return evaluatorService.evaluate(request);
-    }
+  @PostMapping("/symmetry-status")
+  public EvalResponse status(@Valid @RequestBody RequestService request) {
+    return evaluatorService.evaluate(request);
+  }
 
 }
 

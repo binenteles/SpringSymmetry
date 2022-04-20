@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ApiExceptionHandler {
-    @ExceptionHandler(value = {HttpMessageNotReadableException.class})
-    public ResponseEntity<String> handleMethodRequestException(HttpMessageNotReadableException e) {
-        return new ResponseEntity<>("Inserted method is not correct! Options are: FOR, STACK, WHILE, REGEX", HttpStatus.BAD_REQUEST);
-    }
+
+  @ExceptionHandler(value = {HttpMessageNotReadableException.class})
+  public ResponseEntity<String> handleMethodRequestException(HttpMessageNotReadableException e) {
+    return new ResponseEntity<>(
+        "Inserted method is not correct! Options are: FOR, STACK, WHILE, REGEX",
+        HttpStatus.BAD_REQUEST);
+  }
 }
