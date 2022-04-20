@@ -8,12 +8,11 @@ import org.springframework.stereotype.Service;
 public final class SymmetryFactory {
 
     public Evaluator getEvaluator(MethodEvaluation methodEvaluation) {
-        return switch (methodEvaluation.getMethod()) {
-            case "METHOD_FOR" -> new ForBased();
-            case "METHOD_STACK" -> new StackBased();
-            case "METHOD_REGEX" -> new RegexBased();
-            case "METHOD_WHILE" -> new WhileBased();
-            default -> null;
+        return switch (methodEvaluation) {
+            case FOR -> new ForBased();
+            case STACK -> new StackBased();
+            case REGEX -> new RegexBased();
+            case WHILE -> new WhileBased();
         };
 
     }

@@ -1,4 +1,4 @@
-package com.cf.symmetry.entity;
+package com.cf.symmetry.service;
 
 import com.cf.symmetry.factory.MethodEvaluation;
 import lombok.AllArgsConstructor;
@@ -15,17 +15,11 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Service
-public class Request {
+public class RequestService {
     @NotNull(message = "Please provide a valid string. Method is optional; options are: FOR, WHILE, STACK, REGEX")
     private String str;
 
-    private MethodEvaluation method;
+    private MethodEvaluation method = MethodEvaluation.FOR;
 
-    public Request setDefaultMethod(Request request){
-        if (request.getMethod() == null) {
-            request.setMethod(MethodEvaluation.FOR);
-        }
-        return request;
-    }
 
 }

@@ -1,7 +1,6 @@
 package com.cf.symmetry.controller;
 
-import com.cf.symmetry.entity.Request;
-import com.cf.symmetry.factory.MethodEvaluation;
+import com.cf.symmetry.service.RequestService;
 import com.cf.symmetry.service.evaluation.EvalResponse;
 import com.cf.symmetry.service.evaluation.EvaluatorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class SymmetryController {
     }
 
     @PostMapping("/symmetry-status")
-    public EvalResponse status(@Valid @RequestBody Request request) {
+    public EvalResponse status(@Valid @RequestBody RequestService request) {
         return evaluatorService.evaluate(request);
     }
 

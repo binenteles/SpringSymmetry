@@ -6,15 +6,6 @@ public enum MethodEvaluation {
     STACK("METHOD_STACK"),
     REGEX("METHOD_REGEX");
 
-    private final String method;
-
-    MethodEvaluation(String method) {
-        this.method = method;
+    MethodEvaluation(String method_for) {
     }
-
-    public String getMethod(){
-        return method;
-    }
-
-
 }
