@@ -2,7 +2,6 @@ package com.cf.symmetry.options;
 
 import com.cf.symmetry.service.requirements.Pair;
 import com.cf.symmetry.service.requirements.Rule;
-
 import java.util.Stack;
 
 

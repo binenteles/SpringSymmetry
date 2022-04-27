@@ -1,21 +1,20 @@
 package com.cf.symmetry.controller;
 
-import com.cf.symmetry.service.RequestService;
+import com.cf.symmetry.dto.RequestDto;
 import com.cf.symmetry.service.evaluation.EvalResponse;
 import com.cf.symmetry.service.evaluation.EvaluatorService;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping("/api")
 public class SymmetryController {
 
-  private EvaluatorService evaluatorService;
+  private final EvaluatorService evaluatorService;
 
   @Autowired
   public SymmetryController(EvaluatorService evaluatorService) {
@@ -23,7 +22,7 @@ public class SymmetryController {
   }
 
   @PostMapping("/symmetry-status")
-  public EvalResponse status(@Valid @RequestBody RequestService request) {
+  public EvalResponse status(@Valid @RequestBody RequestDto request) {
     return evaluatorService.evaluate(request);
   }
 
