@@ -1,9 +1,15 @@
 package com.cf.symmetry.options;
 
+import com.cf.symmetry.service.requirements.Reader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class RegexBased extends Evaluator {
+
+  public RegexBased(Reader reader) {
+    super(reader);
+  }
 
   @Override
   public boolean isSymmetric(String str) {

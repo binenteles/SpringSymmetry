@@ -1,6 +1,6 @@
 package com.cf.symmetry.service.evaluation;
 
-import com.cf.symmetry.service.RequestService;
+import com.cf.symmetry.dto.EvalRequest;
 import com.cf.symmetry.factory.MethodEvaluation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,9 @@ public class EvaluatorService {
     this.symmetryFactory = symmetryFactory;
   }
 
-  public EvalResponse evaluate(RequestService request) {
-    MethodEvaluation method = request.getMethod();
-    String string = request.getStr();
+  public EvalResponse evaluate(EvalRequest evalRequest) {
+    MethodEvaluation method = evalRequest.getMethod();
+    String string = evalRequest.getStr();
     boolean symmetric = symmetryFactory.getEvaluator(method).isSymmetric(string);
 
     if (symmetric) {

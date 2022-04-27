@@ -1,9 +1,21 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Rule;
+import com.cf.symmetry.service.requirements.Reader;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public abstract class Evaluator {
+
+  private final Reader reader;
+
+  @Autowired
+  protected Evaluator(Reader reader) {
+    this.reader = reader;
+  }
+
+  public Reader getReader() {
+    return reader;
+  }
 
   public abstract boolean isSymmetric(String str);
 
@@ -20,7 +32,7 @@ public abstract class Evaluator {
   }
 
   private boolean hasOtherCharacters(String str) {
-    return str.codePoints().mapToObj(i -> (char) i).noneMatch(Rule::recognizeChar);
+    return str.codePoints().mapToObj(i -> (char) i).noneMatch(reader::recognizeChar);
   }
 
 }

@@ -1,9 +1,14 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Rule;
+import com.cf.symmetry.service.requirements.Reader;
 
 
 public class ForBased extends Evaluator {
+
+
+  public ForBased(Reader reader) {
+    super(reader);
+  }
 
   @Override
   public boolean isSymmetric(String str) {
@@ -14,7 +19,7 @@ public class ForBased extends Evaluator {
     for (int i = 0; i < str.length() / 2; i++) {
       char start = str.charAt(i);
       char end = str.charAt(str.length() - 1 - i);
-      boolean charsNotMatch = Rule.compareCharacters(start, end);
+      boolean charsNotMatch = getReader().compareCharacters(start, end);
 
       if (charsNotMatch) {
         return false;

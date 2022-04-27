@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ApiExceptionHandler {
+public class ApiIncorrectMethodExceptionHandler {
 
   @ExceptionHandler(value = {HttpMessageNotReadableException.class})
   public ResponseEntity<String> handleMethodRequestException(HttpMessageNotReadableException e) {

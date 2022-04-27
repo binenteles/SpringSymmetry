@@ -1,8 +1,13 @@
 package com.cf.symmetry.options;
 
-import com.cf.symmetry.service.requirements.Rule;
+import com.cf.symmetry.service.requirements.Reader;
 
 public class WhileBased extends Evaluator {
+
+
+  public WhileBased(Reader reader) {
+    super(reader);
+  }
 
   @Override
   public boolean isSymmetric(String str) {
@@ -19,7 +24,7 @@ public class WhileBased extends Evaluator {
       char right = arr[j];
       i++;
       j--;
-      boolean charsNotMatch = Rule.compareCharacters(left, right);
+      boolean charsNotMatch = getReader().compareCharacters(left, right);
       if (charsNotMatch) {
         return false;
       }
