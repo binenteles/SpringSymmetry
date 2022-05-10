@@ -1,0 +1,137 @@
+[33mcommit ca429277bd7527712e5eabc76d3e8702593c7be5[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 6890acc b47a590
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Wed May 4 09:39:09 2022 +0300
+
+    schimbare nume clasa Rule in Reader si eliminare metode statice, eliminare constructor din Enum, schimbare nume Clasa Request in EvalRequest
+
+[33mcommit 6890acc4bc82c44840d6f1c1a51e81a4a450f2b5[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Wed Apr 27 14:35:27 2022 +0300
+
+    schimbare nume clasa Rule in Reader si eliminare metode statice, eliminare constructor din Enum, schimbare nume Clasa Request in EvalRequest
+
+[33mcommit b47a590eef50f1f1726c89e3c7729619cc1d3eac[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Wed Apr 27 14:35:27 2022 +0300
+
+    mutare RequestDto din service in pachetul dto, redenumire clasa ApiIncorrectMethodExceptionHandler.java, redenumire teste si completare cu toate cazurile posibile.
+
+[33mcommit 8ed29dfa56386398995ae31bd6e1f07138ef8dec[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Wed Apr 20 14:25:35 2022 +0300
+
+    aplicare code style Java
+
+[33mcommit a37586a3bdd9885964ffe1846fdebefc5d0152d7[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Wed Apr 20 12:58:00 2022 +0300
+
+    stergere setDefaultMethod din RequestService, modificare Enum MethodEvaluation - eliminare return null la default, Modificare test cand metoda lipseste din request.
+
+[33mcommit 20c9a507dcc5a90d935279fb5dbe8faa23972e5a[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Tue Apr 19 17:28:55 2022 +0300
+
+    schimbare nume clasa Reference in Rule, schimbare nume metoda getParis in getRulePair, stergere @NoArgs constructor din controller, modificare controller - inlocuire response entity cu Eval Response
+
+[33mcommit 349b866517f68e1e30ad801ecaff75b49b1ebd8d[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Tue Apr 19 11:09:32 2022 +0300
+
+    mutare clase in pachete corespunzatoare
+
+[33mcommit 11366ddcea461b151de674d026041b70b595a51f[m
+Merge: 9505347 6a2d077
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Tue Apr 19 09:53:48 2022 +0300
+
+    Merge branch 'master' of https://github.com/binenteles/SpringSymmetry
+
+[33mcommit 9505347b6682cd0d02b8d0255df5f52bf5638499[m
+Merge: 28819c2 61c51b1
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 18 10:00:06 2022 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 6a2d0776d5b8b94edf1218fb62bb11801af58626[m
+Merge: 28819c2 61c51b1
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 18 10:00:06 2022 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 28819c215f95b3858b0050a4702821de5d652dae[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 18 09:59:41 2022 +0300
+
+    teste functionale
+
+[33mcommit e0dc0c658bb388aaa77cdb7d67e1c15a8160b4c9[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 11 18:00:50 2022 +0300
+
+    redenumire enum, organizare pachete, modificare metoda in service, raspunsul in controller intoarce un obiect
+
+[33mcommit 61c51b13f065ab3dd0ebe64d61921e3f7ad6f6ae[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 11 18:00:50 2022 +0300
+
+    redenumire enum, organizare pachete, modificare metoda in service, raspunsul in controller intoarce un obiect
+
+[33mcommit 4d93cc0f89c6a7947be47e9c87d921358be10ebc[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 11 18:00:39 2022 +0300
+
+    redenumire enum, organizare pachete, modificare metoda in service, raspunsul in controller intoarce un obiect
+
+[33mcommit 2b60eada0035d3b5c574d35196e54a278db99d7f[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Fri Apr 8 15:15:47 2022 +0300
+
+    versiune updatata
+
+[33mcommit 0355731b8c197efbfe56c90bd2899764a2dc5d88[m
+Merge: 05e2429 ae9cb10
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Fri Apr 8 14:24:39 2022 +0300
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/java/com/cf/symmetry/Evaluator.java
+    #       src/main/java/com/cf/symmetry/controller/SymmetryController.java
+    #       src/main/java/com/cf/symmetry/options/RegexBased.java
+    #       src/main/java/com/cf/symmetry/options/StackBased.java
+    #       src/main/java/com/cf/symmetry/service/EvaluatorService.java
+
+[33mcommit 05e2429e76b7d227d046bf8419d23b6f92fa5d8b[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Fri Apr 8 14:22:01 2022 +0300
+
+    Adaugare API exception, modificare cod
+
+[33mcommit ae9cb1021b1a1ccc769c5e592dc34f627b5709d4[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Tue Apr 5 18:34:32 2022 +0300
+
+    optimizare cod
+
+[33mcommit 4400d2ccb2bc374d448db691e5578d36e1916a33[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Tue Apr 5 09:54:19 2022 +0300
+
+    aranjare pachete
+
+[33mcommit 71bd499bd9683df4400d588cbc715f7b64851550[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Mon Apr 4 20:26:36 2022 +0300
+
+    eliminare bucle if-else din SymmetryController
+
+[33mcommit 1350f7a1fc596250a1108321984d44abe97d4ff8[m
+Author: Alexandru Jelescu <alexjelescu@gmail.com>
+Date:   Fri Apr 1 15:17:47 2022 +0300
+
+    First commit
